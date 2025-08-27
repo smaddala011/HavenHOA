@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HavenHOA — Modern tools for community associations (Coming Soon)</title>
+  <meta name="description" content="HavenHOA is a mobile-first platform for HOAs: payments, announcements, documents, role-based access, and governance — coming soon." />
+  <meta property="og:title" content="HavenHOA — Coming Soon" />
+  <meta property="og:description" content="Mobile-first tools for HOAs: payments, communication, docs, governance. Join the waitlist." />
+  <meta name="theme-color" content="#0b2a4a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏡</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { haven: { navy: '#0b2a4a', navyDark: '#09223d' } },
+          fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans','sans-serif'] },
+          boxShadow: { soft: '0 1px 2px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.08)' }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Light-only look + subtle page tint */
+    :root { color-scheme: light; }
+    html, body { background: #f6f8fc; }
+  </style>
+</head>
+<body class="font-sans text-slate-800">
+  <!-- Header (navy) -->
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-haven-navy text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="group inline-flex items-center gap-2">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/15 text-white shadow-soft">H</span>
+        <span class="font-semibold tracking-tight">HavenHOA</span>
+        <span class="ml-2 text-xs px-2 py-0.5 rounded-full bg-white/15">Coming soon</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="#product" class="hover:underline">Product</a>
+        <a href="#why" class="hover:underline">Why</a>
+        <a href="#progress" class="hover:underline">Progress</a>
+        <a href="#waitlist" class="rounded-lg bg-white text-haven-navy px-3 py-1.5 hover:bg-slate-100 shadow-soft">Join waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (2 columns, centered; capped mock height to avoid big gap) -->
+  <section id="top" class="max-w-6xl mx-auto px-4 pt-12 pb-6 md:py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <!-- Left -->
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+          Modern tools for HOA communities — simple, transparent, and mobile-first
+        </h1>
+        <p class="mt-4 text-slate-700 max-w-2xl">
+          HavenHOA brings payments, announcements, documents, and governance into one clean app. Role-based access
+          for residents and board members, with a product focus on clarity and trust.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#waitlist" class="inline-flex items-center gap-2 rounded-xl bg-haven-navy text-white px-4 py-2 hover:bg-haven-navyDark shadow-soft">Join waitlist</a>
+          <a href="./index.html" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 bg-white hover:bg-slate-50">Back to portfolio</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Target user: U.S. HOA market (~370k associations). Initial pricing tests: $25–$100/community per month.</p>
+      </div>
+
+      <!-- Right: mock device with higher contrast + size caps -->
+      <div class="max-w-[360px] md:ml-auto">
+        <div class="rounded-2xl border border-slate-200 p-1 shadow-soft bg-white">
+          <div class="relative aspect-[9/18] md:max-h-[540px] rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 via-white to-indigo-200">
+            <div id="mockCarousel" class="absolute inset-0">
+              <picture class="slide absolute inset-0">
+                <source type="image/webp" srcset="./assets/haven-home.webp">
+                <img src="./assets/haven-home.png" alt="HavenHOA Home screen" class="w-full h-full object-cover" decoding="async" />
+              </picture>
+              <picture class="slide absolute inset-0 hidden">
+                <source type="image/webp" srcset="./assets/haven-announcements.webp">
+                <img src="./assets/haven-announcements.png" alt="HavenHOA Announcements screen" class="w-full h-full object-cover" decoding="async" />
+              </picture>
+            </div>
+            <!-- Dots -->
+            <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+              <button class="dot h-2.5 w-2.5 rounded-full bg-white/80 hover:bg-white transition" aria-label="Slide 1"></button>
+              <button class="dot h-2.5 w-2.5 rounded-full bg-white/40 hover:bg-white transition" aria-label="Slide 2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product -->
+  <section id="product" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">What we’re building</h2>
+        <p class="text-slate-700">A single app that helps boards run communities and gives residents a clear channel for engagement.</p>
+        <ul class="grid sm:grid-cols-2 gap-3 text-sm">
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Payments & dues tracking</li>
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Announcements & messaging</li>
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Documents & e-sign</li>
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Role-based access & permissions</li>
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Issue reporting & requests</li>
+          <li class="rounded-xl border border-slate-200 p-3 bg-white">Meetings, polls, and voting</li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <h3 class="text-lg font-semibold">Tech & approach</h3>
+        <ul class="text-sm list-disc ml-5 space-y-1">
+          <li>Mobile-first build in <strong>Flutter</strong> with <strong>Firebase</strong> auth, database, and storage.</li>
+          <li>Exploring <strong>AI</strong> features for meeting summaries and Q&A on documents.</li>
+          <li>Privacy and auditability for community decision-making.</li>
+        </ul>
+        <div class="rounded-2xl border border-slate-200 p-4 bg-gradient-to-br from-white to-slate-50 shadow-soft">
+          <h4 class="font-semibold">“Jobs to be done” we serve</h4>
+          <ul class="mt-2 text-sm list-disc ml-5 space-y-1">
+            <li><strong>Board members:</strong> collect dues, share docs, make decisions, and keep records tidy.</li>
+            <li><strong>Residents:</strong> know what’s happening, pay quickly, and get timely responses.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section id="why" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Why this matters</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <div class="rounded-2xl border border-slate-200 p-5 bg-white shadow-soft">
+        <h4 class="font-semibold">Fragmented communication</h4>
+        <p class="text-sm mt-2 text-slate-600">Group emails and PDFs create confusion. HavenHOA makes updates consistent and discoverable.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-5 bg-white shadow-soft">
+        <h4 class="font-semibold">Messy payments</h4>
+        <p class="text-sm mt-2 text-slate-600">Collecting dues is painful. We streamline reminders, status, and reconciliation.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-5 bg-white shadow-soft">
+        <h4 class="font-semibold">Governance & trust</h4>
+        <p class="text-sm mt-2 text-slate-600">Clear roles, voting, and decision logs reduce drama and increase transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress -->
+  <section id="progress" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">What I’m doing now</h2>
+        <ul class="mt-4 text-sm list-disc ml-5 space-y-2">
+          <li>Interviewed <strong>15+ homeowners and board members</strong> to map pains and workflows.</li>
+          <li>Defined <strong>MVP</strong> and role-based access (resident vs. admin); built auth, nav, and core flows.</li>
+          <li>Tested pricing hypotheses (<strong>$25–$100/community</strong>) and established adoption KPIs.</li>
+          <li>Competitive analysis of <strong>5+ HOA tools</strong> to position HavenHOA with differentiated UX.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">Roadmap</h3>
+        <ol class="mt-3 text-sm space-y-2">
+          <li><span class="font-medium">Now:</span> Validate MVP with pilot communities; tighten payments + announcements.</li>
+          <li><span class="font-medium">Next:</span> Documents, polls/voting, requests; early admin analytics.</li>
+          <li><span class="font-medium">Later:</span> AI meeting summaries, document Q&A, integrations.</li>
+        </ol>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs px-2.5 py-1.5 rounded-full bg-yellow-100 text-yellow-800">Coming soon — looking for 2–3 pilot HOAs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section id="waitlist" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="rounded-2xl border border-slate-200 p-8 bg-gradient-to-br from-white to-slate-50 shadow-soft">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Join the waitlist</h2>
+      <p class="mt-2 text-slate-600">Interested in piloting HavenHOA or want updates? Drop a note and I’ll reach out.</p>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a href="mailto:smaddala011@gmail.com?subject=HavenHOA%20Waitlist&body=Tell%20me%20a%20bit%20about%20your%20community%20(size%2C%20needs%2C%20tools%20today)." class="inline-flex items-center gap-2 rounded-xl bg-haven-navy text-white px-4 py-2 hover:bg-haven-navyDark shadow-soft">Email to join</a>
+        <a href="./index.html" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2 bg-white hover:bg-slate-50">Back to portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-4 py-8 text-xs text-slate-500">
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <span>© <span id="year"></span> HavenHOA</span>
+      <span>Built by Sriharsha Maddala · <a href="./index.html" class="underline hover:no-underline">Portfolio</a></span>
+    </div>
+  </footer>
+
+  <!-- Tiny carousel script -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){
+      const root = document.getElementById('mockCarousel');
+      if(!root) return;
+      const slides = Array.from(root.querySelectorAll('.slide'));
+      const dots = Array.from(root.parentElement.querySelectorAll('.dot'));
+      let i = 0;
+      function show(n){
+        i = (n+slides.length)%slides.length;
+        slides.forEach((s,idx)=>s.classList.toggle('hidden', idx!==i));
+        dots.forEach((d,idx)=>d.classList.toggle('bg-white/80', idx===i));
+        dots.forEach((d,idx)=>d.classList.toggle('bg-white/40', idx!==i));
+      }
+      dots.forEach((d,idx)=>d.addEventListener('click',()=>show(idx)));
+      let t = setInterval(()=>show(i+1), 3500);
+      root.addEventListener('mouseenter', ()=>clearInterval(t));
+      root.addEventListener('mouseleave', ()=> t = setInterval(()=>show(i+1), 3500));
+      show(0);
+    })();
+  </script>
+</body>
+</html>
