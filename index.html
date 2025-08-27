@@ -9,6 +9,7 @@
   <meta property="og:description" content="Mobile-first tools for HOAs: payments, communication, docs, governance. Join the waitlist." />
   <meta name="theme-color" content="#0b2a4a" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏡</text></svg>">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,13 +26,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Light-only look + subtle page tint */
     :root { color-scheme: light; }
     html, body { background: #f6f8fc; }
   </style>
 </head>
 <body class="font-sans text-slate-800">
-  <!-- Header (navy) -->
+  <!-- Header -->
   <header class="sticky top-0 z-50 border-b border-slate-200 bg-haven-navy text-white">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="group inline-flex items-center gap-2">
@@ -48,7 +48,7 @@
     </div>
   </header>
 
-  <!-- Hero (2 columns, centered; capped mock height to avoid big gap) -->
+  <!-- Hero -->
   <section id="top" class="max-w-6xl mx-auto px-4 pt-12 pb-6 md:py-16">
     <div class="grid md:grid-cols-2 gap-8 items-center">
       <!-- Left -->
@@ -67,24 +67,21 @@
         <p class="mt-3 text-xs text-slate-500">Target user: U.S. HOA market (~370k associations). Initial pricing tests: $25–$100/community per month.</p>
       </div>
 
-      <!-- Right: mock device with higher contrast + size caps -->
+      <!-- Right: light-frame carousel, dark dots -->
       <div class="max-w-[360px] md:ml-auto">
         <div class="rounded-2xl border border-slate-200 p-1 shadow-soft bg-white">
-          <div class="relative aspect-[9/18] md:max-h-[540px] rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 via-white to-indigo-200">
-            <div id="mockCarousel" class="absolute inset-0">
-              <picture class="slide absolute inset-0">
-                <source type="image/webp" srcset="./assets/haven-home.webp">
-                <img src="./assets/haven-home.png" alt="HavenHOA Home screen" class="w-full h-full object-cover" decoding="async" />
-              </picture>
-              <picture class="slide absolute inset-0 hidden">
-                <source type="image/webp" srcset="./assets/haven-announcements.webp">
-                <img src="./assets/haven-announcements.png" alt="HavenHOA Announcements screen" class="w-full h-full object-cover" decoding="async" />
-              </picture>
-            </div>
-            <!-- Dots -->
-            <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
-              <button class="dot h-2.5 w-2.5 rounded-full bg-white/80 hover:bg-white transition" aria-label="Slide 1"></button>
-              <button class="dot h-2.5 w-2.5 rounded-full bg-white/40 hover:bg-white transition" aria-label="Slide 2"></button>
+          <div class="relative rounded-xl overflow-hidden bg-slate-100">
+            <img id="mockShot"
+                 src="./assets/haven-home.png?v=6"
+                 alt="HavenHOA mock"
+                 class="w-full h-auto block"
+                 loading="eager" decoding="async" />
+            <!-- dots (dark) -->
+            <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+              <button class="mockDot h-2.5 w-2.5 rounded-full bg-slate-900 ring-1 ring-white/70"
+                      data-src="./assets/haven-home.png?v=6" aria-label="Home"></button>
+              <button class="mockDot h-2.5 w-2.5 rounded-full bg-slate-900/30 ring-1 ring-white/70"
+                      data-src="./assets/haven-announcements.png?v=6" aria-label="Announcements"></button>
             </div>
           </div>
         </div>
@@ -183,30 +180,28 @@
   <footer class="max-w-6xl mx-auto px-4 py-8 text-xs text-slate-500">
     <div class="flex flex-wrap items-center justify-between gap-2">
       <span>© <span id="year"></span> HavenHOA</span>
-      <span>Built by Sriharsha Maddala · <a href="./index.html" class="underline hover:no-underline">Portfolio</a></span>
+      <span>Built by Sriharsha Maddala</span>
     </div>
   </footer>
 
-  <!-- Tiny carousel script -->
+  <!-- Minimal JS: year + light carousel with dark dots -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
     (function(){
-      const root = document.getElementById('mockCarousel');
-      if(!root) return;
-      const slides = Array.from(root.querySelectorAll('.slide'));
-      const dots = Array.from(root.parentElement.querySelectorAll('.dot'));
-      let i = 0;
-      function show(n){
-        i = (n+slides.length)%slides.length;
-        slides.forEach((s,idx)=>s.classList.toggle('hidden', idx!==i));
-        dots.forEach((d,idx)=>d.classList.toggle('bg-white/80', idx===i));
-        dots.forEach((d,idx)=>d.classList.toggle('bg-white/40', idx!==i));
+      const img = document.getElementById('mockShot');
+      const dots = Array.from(document.querySelectorAll('.mockDot'));
+      if (!img || !dots.length) return;
+
+      function activate(dot){
+        dots.forEach(x => { x.classList.remove('bg-slate-900'); x.classList.add('bg-slate-900/30'); });
+        dot.classList.remove('bg-slate-900/30'); dot.classList.add('bg-slate-900');
+        img.src = dot.dataset.src;
       }
-      dots.forEach((d,idx)=>d.addEventListener('click',()=>show(idx)));
-      let t = setInterval(()=>show(i+1), 3500);
-      root.addEventListener('mouseenter', ()=>clearInterval(t));
-      root.addEventListener('mouseleave', ()=> t = setInterval(()=>show(i+1), 3500));
-      show(0);
+
+      dots.forEach(d => d.addEventListener('click', () => activate(d)));
+      // Set initial active state
+      activate(dots[0]);
     })();
   </script>
 </body>
